@@ -65,3 +65,22 @@ Render does not host databases, so use [MongoDB Atlas](https://www.mongodb.com/c
 Render doesn’t run Prometheus/Grafana, but you can:
 - Use [Grafana Cloud](https://grafana.com/products/cloud/)
 - Integrate with 3rd-party services like LogRocket or Datadog
+
+## Deploy Instructions for Prometheus and Graphana to local
+1. Pull this project from GitHub to local using Docker Desktop
+2. Navigate to the monitoring folder under this repo
+3. Using docker compose run below command to bring up Prometheus and Graphana
+   - docker-compose -f docker-compose.monitor.yml up -d
+5. Use http://localhost:9090 to access Prometheus server
+6. Use http://localhost:3001 to access Graphana Dashboard
+   - Username: admin, Password: admin
+   - A prompt will appear to change the password.
+   - Connect to add data source as prometheus using http://prometheus:9090
+   - Create a custom dashboard or Import from Graphana labs ([https://grafana.com](url)) using build ID as shown below
+
+| Dashboard Name                     | Import ID | Description                          |
+| ---------------------------------- | --------- | ------------------------------------ |
+| Node.js app metrics                |  11074    | Monitors requests, heap, uptime, CPU |
+| React health check (blackbox/http) |    587    | If using Blackbox Exporter           |
+| Docker Host Metrics                |    893    | General container stats              |
+

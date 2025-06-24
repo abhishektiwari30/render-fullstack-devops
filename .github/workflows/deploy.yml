@@ -16,9 +16,6 @@ jobs:
       - name: Echo SECRET key (masked)
         run: echo "API key is $API_KEY"
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Trigger Backend Deploy
         run: curl -X POST ${{ secrets.RENDER_BACKEND_HOOK }}
 

@@ -7,6 +7,9 @@ app.get('/', (req, res) => {
 });
 app.get('/health', (req, res) => res.send('OK'));
 app.get('/users', (req, res) => res.json([{ id: 1, name: 'Alice' }]));
+app.get('/dbcheck', (req, res) => {
+  res.send(`Mongoose loaded: ${!!require('mongoose')}`);
+});
 
 const mongoose = require('mongoose');
 

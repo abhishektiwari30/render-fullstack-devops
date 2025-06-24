@@ -1,0 +1,17 @@
+name: CI/CD for Render Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Trigger Backend Deploy
+        run: curl -X POST ${{ secrets.RENDER_BACKEND_HOOK }}
+
+      - name: Trigger Frontend Deploy
+        run: curl -X POST ${{ secrets.RENDER_FRONTEND_HOOK }}

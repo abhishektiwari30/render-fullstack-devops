@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: backend
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: DB_URL
+        value: your_mongodb_connection_string

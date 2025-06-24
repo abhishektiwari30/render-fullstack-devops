@@ -8,4 +8,4 @@ services:
       - key: PORT
         value: 3000
       - key: DB_URL
-        value: your_mongodb_connection_string
+        value: ${{ secrets.DB_URL }}
